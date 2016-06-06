@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/socket.io.js"></script>
+    <script src="js/socket.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="roommate-scaner">
+
+ 
+      <ion-header-bar class="bar-stable" style="background-color:white;">
+        <h1 class="title" style="color: #387EF5">Roomate Scanner</h1>
+      </ion-header-bar>
+      <ion-content scroll="true" style="background-color: #387EF5">
+
+        <div ng-controller="MainController" style="height:100%">
+
+        <div class="list card" style="background-color:#387EF5">
+          <a href="#" class="item item-icon-left">
+            <i class="icon ion-home"></i>
+            Home Status <span ng-if="home.status !== null">- <span style="font-weight:bold;">{{ home.status }}</span></span>
+          </a>
+          <a href="#" class="item item-icon-left">
+            <i class="icon ion-wifi"></i>
+            Server Status <span ng-if="server.status !== null">- <span style="font-weight:bold;">{{ server.status }}</span></span>
+          </a>
+        </div>
+
+        <div ng-if="scanDisabled === true" class="row">
+          <div class="col" style="text-align:center">
+            <h1 style="color:white;">{{scanningAnimation}}</h1>
+          </div>
+        </div>
+        <div ng-if="scanDisabled === true" class="row">
+          <div class="col" style="text-align:center"><ion-spinner icon="spiral" style="color:white; font-size: 20px;"></ion-spinner></div>
+        </div>
+
+        <div ng-if="scanDisabled === false && results !== null" class="row">
+          <div class="col" style="text-align:center">
+            <h1 style="color:white;">Results</h1>
+          </div>
+        </div>
+
+        <div ng-if="scanDisabled === false && results !== null"  class="list list-inset">
+            <div ng-repeat="result in results" class="item">
+              Device Vendor: {{result.vendor}} <br> IP: {{result.ipAddress}} <br> MAC: {{result.macAddress}} <br> Acquired via {{result.reason}}
+            </div>
+        </div>
+
+
+        <div class="row" style="margin-top:40px;">
+          <div class="col col-offset-25">
+              <a style="border: solid 1px white;" ng-disabled="scanDisabled" ng-click="initScan()" class=" button button-positive  button-block icon ion-android-globe " id="roommateScanner-button1">  Scan</a>
+          </div>
+          <div class="col col-25"></div>
+        </div>
+          
+      </ion-content>
+
+  </body>
+</html>

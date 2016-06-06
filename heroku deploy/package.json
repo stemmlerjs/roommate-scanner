@@ -1,0 +1,27 @@
+{
+  "name": "roommate-scanner",
+  "version": "1.0.0",
+  "description": "ayy?",
+  "engines": {
+    "node": "5.9.1"
+  },
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+   "dependencies": {
+    "body-parser": "^1.15.1",
+    "colors": "^1.1.2",
+    "express": "^4.13.4",
+    "jsonfile": "^2.3.1",
+    "socket.io": "^1.4.6",
+    "socket.io-client": "^1.4.6"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "ayy"
+  ],
+  "license": "ISC",
+  "author": "Khalil Stemmler"
+}

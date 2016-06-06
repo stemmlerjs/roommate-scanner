@@ -1,0 +1,26 @@
+{
+  "name": "roomate-scanner",
+  "version": "1.0.0",
+  "description": "Scans the network for changes ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "scanner",
+    "node",
+    "ip"
+  ],
+  "author": "Khalil Stemmler",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "colors": "^1.1.2",
+    "express": "^4.13.4",
+    "jsonfile": "^2.3.1",
+    "libnmap": "^0.2.32",
+    "network": "^0.2.0",
+    "socket.io": "^1.4.6",
+    "socket.io-client": "^1.4.6"
+  }
+}
